@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://Kejv:Kejv123456@coconote-m4stp.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "3183842023d51ffc1758",
+  "githubSecret": "cd591aec287bd2b80d84862c502d5415a22d8717"
+}
