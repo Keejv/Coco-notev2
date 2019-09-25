@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { login } from '../../actions/auth'
+import styles from './Login.module.css';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <div class="form-container sign-in-container">
+      <div className={styles.formContainer}>
         <form onSubmit={e => onSubmit(e)}>
           <h1>Sign in</h1>
           <span>or use your account</span>

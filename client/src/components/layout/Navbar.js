@@ -38,12 +38,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         Developers
         </Link>
       </li>
-      <li>
-        <Link to='/register'>Register</Link>
-      </li>
-      <li>
-        <Link to='/login'>Login</Link>
-      </li>
     </ul>
   );
   return (

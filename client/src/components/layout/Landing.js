@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Login from "../auth/Login";
+import LoginSignup from "../auth/LoginSignup";
 import Register from "../auth/Register";
 import "./Layout.css"; // import CSS
 
@@ -25,8 +26,9 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <section className="landing">
-      <Login />
-      <Register />
+      {/* <Login />
+      <Register /> */}
+      <LoginSignup />
     </section>
   );
 };

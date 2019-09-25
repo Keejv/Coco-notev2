@@ -1,36 +1,39 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import Moment from 'react-moment';
-import { deleteComment } from '../../actions/post'
-
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import Moment from "react-moment";
+import { deleteComment } from "../../actions/post";
 
 const CommentItem = ({
   postId,
-  comment: { _id, text, name, avatar, user, date },
+  comment: { _id, text, name, user, date },
   auth,
   deleteComment
 }) => (
-  <div class='post bg-white p-1 my-1'>
+  <div class="post bg-white p-1 my-1">
     <div>
       <Link to={`/profile/${user}`}>
-        <img class='round-img' src={avatar} alt='' />
+        <img
+          class="round-img"
+          src={`https://api.adorable.io/avatars/285/${name}`}
+          alt="profile image"
+        />
         <h4>{name}</h4>
       </Link>
     </div>
     <div>
-      <p class='my-1'>{text}</p>
-      <p class='post-date'>
-        Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
+      <p class="my-1">{text}</p>
+      <p class="post-date">
+        Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
       </p>
-      {!auth.loading && user === auth.user._id && (
+      {!auth.loading && (user === auth.user._id || auth.user.admin) && (
         <button
           onClick={e => deleteComment(postId, _id)}
-          type='button'
-          className='btn btn-danger'
+          type="button"
+          className="btn btn-danger"
         >
-          <i className='fas fa-times' />
+          <i className="fas fa-times" />
         </button>
       )}
     </div>
@@ -42,9 +45,12 @@ CommentItem.propTypes = {
   comment: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   deleteComment: PropTypes.object.isRequired
-}
+};
 
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
   auth: state.auth
-})
-export default connect(mapStateToProps, { deleteComment })(CommentItem)
+});
+export default connect(
+  mapStateToProps,
+  { deleteComment }
+)(CommentItem);

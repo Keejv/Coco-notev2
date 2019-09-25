@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setAlert } from '../../actions/alert'
 import { register } from '../../actions/auth'
 import PropTypes from 'prop-types'
+import styles from './Register.module.css';
 
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
@@ -30,9 +31,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     return <Redirect to="/dashboard" />
   }
 
+  // "form-container sign-up-container"
   return (
     <Fragment>
-      <div class="form-container sign-up-container">
+      <div className={styles.formContainer}>
         <form onSubmit={e => onSubmit(e)}>
           <h1>Create Account</h1>
           <span>or use your email for registration</span>
@@ -50,10 +52,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={e => onChange(e)}
           />
-          <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
           <input
             type="password"
             placeholder="Password"
