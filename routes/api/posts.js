@@ -30,7 +30,6 @@ router.post(
       const newPost = new Post({
         text: req.body.text,
         name: user.name,
-        avatar: user.avatar,
         user: req.user.id
       });
 
@@ -187,7 +186,6 @@ router.post(
       const newComment = {
         text: req.body.text,
         name: user.name,
-        avatar: user.avatar,
         user: req.user.id
       };
 
@@ -221,7 +219,7 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
     }
 
     // Check user
-    if (comment.user.toString() !== req.user.id) {
+    if (comment.user.toString() !== req.user.id && !req.user.admin) {
       return res.status(401).json({ msg: "User not authorized" });
     }
 

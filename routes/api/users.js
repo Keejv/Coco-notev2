@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator/check');
 const jwt = require('jsonwebtoken');
@@ -33,16 +32,10 @@ async (req, res) => {
       return res.status(400).json({ errors: [ { msg: 'Users already exists '}] });
      }
 
-    const avatar = gravatar.url(email, {
-      s: '200',
-      r: 'pg',
-      d: 'mm'
-    })
 
     user = new User({
       name,
       email,
-      avatar,
       password
     });
     // Encrypt password

@@ -8,18 +8,18 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
         <li>
         <Link to='/profiles'>
-        Developers
+        Users
         </Link>
       </li>
       <li>
         <Link to='/posts'>
-        Posts
+        Notes
         </Link>
       </li>
             <li>
         <Link to='/dashboard'>
         <i className='fas fa-user' />{' '}
-        <span className='hide-sm'>Dashboard</span>
+        <span className='hide-sm'>User info</span>
         </Link>
       </li>
       <li>
@@ -35,22 +35,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link to='/profiles'>
-        Developers
+        Users
         </Link>
       </li>
-      <li>
-        <Link to='/register'>Register</Link>
-      </li>
-      <li>
-        <Link to='/login'>Login</Link>
-      </li>
+
     </ul>
   );
   return (
-    <nav className="navbar bg-dark">
+    <nav className="navbar">
     <h1>
-      <Link to='/'>
-        <i className="fas fa-code"></i> DevConnector</Link>
+      <Link to='/posts'>
+        <i className="fas fa-code"></i> CocoNote</Link>
     </h1>
     { !loading && <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>}
   </nav>

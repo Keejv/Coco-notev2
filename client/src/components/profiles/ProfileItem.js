@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const ProfileItem = ({ profile: {
-  user: { _id, name, avatar },
+  user: { _id, name },
   status,
   company,
   location,
@@ -12,7 +12,7 @@ const ProfileItem = ({ profile: {
 } }) => {
   return (
     <div className="profile bg-light">
-      <img src="{avatar}" alt="" className="round-img"/>
+      <img src={`https://api.adorable.io/avatars/285/${name}`} alt="" className="round-img"/>
       <div>
         <h2>{name}</h2>
         <p>{status} {company && <span> at {company}</span>}</p>

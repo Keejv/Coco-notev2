@@ -2,30 +2,36 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import Login from "../auth/Login";
+import LoginSignup from "../auth/LoginSignup";
+import Register from "../auth/Register";
+import "./Layout.css"; // import CSS
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />
   }
 
+    // const signUpButton = document.getElementById("signUp");
+  // const signInButton = document.getElementById("signIn");
+  // const container = document.getElementById("container");
+
+  // signUpButton.addEventListener("click", () => {
+  //   container.classList.add("right-panel-active");
+  // });
+
+  // signInButton.addEventListener("click", () => {
+  //   container.classList.remove("right-panel-active");
+  // });
+
   return (
     <section className="landing">
-      <div className="dark-overlay">
-        <div className="landing-inner">
-          <h1 className="x-large">Developer Connector</h1>
-          <p className="lead">
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
-          </p>
-          <div className="buttons">
-            <Link to="/register" className="btn btn-primary">Sign Up</Link>
-            <Link to="/login" className="btn btn-light">Login</Link>
-          </div>
-        </div>
-      </div>
+      {/* <Login />
+      <Register /> */}
+      <LoginSignup />
     </section>
-  )
-}
+  );
+};
 
 Landing.propTypes = {
   isAuthenticated: PropTypes.bool

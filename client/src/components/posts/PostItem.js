@@ -10,13 +10,13 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date },
+  post: { _id, text, name, user, likes, comments, date },
   showActions
 }) => (
   <div class='post bg-white p-1 my-1'>
     <div>
     <Link to={`/profile/${user}`}>
-        <img class='round-img' src={avatar} alt='' />
+        <img class='round-img' src={`https://api.adorable.io/avatars/285/${name}`} alt='' />
         <h4>{name}</h4>
     </Link>
     </div>

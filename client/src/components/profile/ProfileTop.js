@@ -7,11 +7,11 @@ const ProfileTop = ({ profile: {
   location,
   website,
   social,
-  user: { name, avatar }
+  user: { name }
 } }) => {
   return (
     <div class='profile-top bg-primary p-2'>
-      <img class='round-img my-1' src={avatar} alt='' />
+      <img class='round-img my-1' src={`https://api.adorable.io/avatars/285/${name}`} alt='' />
       <h1 class='large'>{name}</h1>
       <p class='lead'>
         {status} {company && <span> at {company}</span>}

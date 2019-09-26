@@ -14,12 +14,13 @@ const mongoose = require('mongoose');
     type: String,
     required: true
   },
-  avatar: {
-    type: String
-  },
   date: {
     type: Date,
     default: Date.now
+  },
+  admin: {
+    type: Boolean,
+    default: false
   }
 });
 
